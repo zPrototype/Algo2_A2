@@ -205,10 +205,12 @@ struct BinHeap
             {
                 Node *node = e->node;
                 node = bubbleUp(node, false);
+                e->node = node;
             } else
             {
                 Node *node = e->node;
                 node = moveDown(node, false);
+                e->node = node;
             }
             return true;
         }
@@ -245,7 +247,7 @@ struct BinHeap
     // Inhalt der Halde zu Testzwecken ausgeben.
     void dump()
     {
-        cout << endl;
+        // cout << endl;
         for (Node *node = this->head; node != 0; node = node->sibling)
         {
             dump(node, 0);
